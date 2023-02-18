@@ -1,0 +1,3 @@
+--language=c++
+-Ivendor/imgui
+-Ivendor/imgui/backends
