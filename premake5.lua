@@ -1,6 +1,8 @@
 workspace "ImguiDemo"
   configurations {"Debug", "Release"}
 
+include "vendor/imgui"
+
 project "ImguiDemo"
   kind "WindowedApp"
   language "C++"
@@ -12,15 +14,20 @@ project "ImguiDemo"
   {
     "src/**.h",
     "src/**.cpp",
-    "vendor/imgui/*.cpp",
     "vendor/imgui/backends/imgui_impl_glfw.cpp",
     "vendor/imgui/backends/imgui_impl_opengl3.cpp",
+
   }
 
   includedirs
   {
-    "vendor/imgui",
-    "vendor/imgui/backends"
+    "src",
+    "vendor/imgui"
+  }
+
+  links
+  {
+    "ImGui",
   }
 
   filter { "system:linux"}
