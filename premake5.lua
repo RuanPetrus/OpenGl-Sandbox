@@ -1,9 +1,9 @@
-workspace "ImguiDemo"
+workspace "OpenGLTemplate"
   configurations {"Debug", "Release"}
 
 include "vendor/imgui"
 
-project "ImguiDemo"
+project "OpenGLTemplate"
   kind "WindowedApp"
   language "C++"
 

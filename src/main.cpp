@@ -1,6 +1,5 @@
 #include "Application.h"
 #include "Image.h"
-#include "Render.h"
 
 class ExampleLayer : public App::Layer
 {
@@ -34,18 +33,9 @@ private:
       m_ImageData = new uint32_t[m_ViewPortHeight * m_ViewPortWidth];
     }
 
-    Render::Canvas canvas;
-    canvas.data = m_ImageData;
-    canvas.width = m_ViewPortWidth;
-    canvas.height = m_ViewPortHeight;
-
-    Render::fill(canvas, 0xff0000ff);
-    Render::fillRetangule(
-        canvas, 
-        canvas.width/4, canvas.height/4, 
-        canvas.width/2, canvas.height/2, 
-        0xffff0000);
-
+    for (uint32_t i = 0; i < m_ViewPortHeight * m_ViewPortWidth; i++){
+        m_ImageData[i] = 0xFFFF00FF;
+      }
     m_Image->SetData(m_ImageData);
   }
 private:
